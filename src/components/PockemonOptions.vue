@@ -1,24 +1,23 @@
 <template>
-  
   <div class="options-container">
-     <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-     </ul>
+    <ul>
+      <li v-for="pocke in pockemons" @click="$emit('selection', pocke.id  )" :key="pocke.id">{{pocke.name}}</li>
+    </ul>
   </div>
-
 </template>
 
 <script>
 export default {
-
-}
+  props: {
+    pockemons: {
+      type: Array,
+      required: true
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 /* Pokemon Options */
 ul {
   list-style-type: none;
